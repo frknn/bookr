@@ -15,7 +15,6 @@
 
 html {
   scroll-behavior: smooth;
-  width: 100vw;
 }
 
 body {
@@ -226,7 +225,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 }
 
 .rooms-cards {

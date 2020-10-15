@@ -1,0 +1,644 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-primary: #187352;
+  --clr-secondary: #FA9159;
+  --clr-light: #FFF;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  font-family: 'Exo', sans-serif;
+  color: var(--clr-primary);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  background-color: var(--clr-light);
+  z-index: 9999;
+}
+
+.hamburger-toggle-btn {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 1rem 0;
+  border: 0;
+  outline: 0;
+}
+
+.hamburger-toggle {
+  display: block;
+  position: relative;
+}
+
+.hamburger-toggle,
+.hamburger-toggle::before,
+.hamburger-toggle::after {
+  width: 3em;
+  height: 5px;
+  background: var(--clr-primary);
+  transition: all 0.25s ease-in-out;
+}
+
+.hamburger-toggle::before,
+.hamburger-toggle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburger-toggle::before {
+  bottom: 15px;
+}
+
+.hamburger-toggle::after {
+  top: 15px;
+}
+
+.hamburger-toggle.open {
+  transform: rotate(45deg);
+}
+
+.hamburger-toggle.open::before {
+  transform: translate(0, 15px);
+}
+
+.hamburger-toggle.open::after {
+  transform: translateY(-15px) rotate(-90deg);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.nav-title {
+  font-weight: var(--fw-extra-bold);
+  font-size: 3rem;
+}
+
+.nav-list {
+  list-style: none;
+  position: absolute;
+  top: 80px;
+  left: 100%;
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 5rem;
+  font-weight: var(--fw-bold);
+  background-color: var(--clr-light);
+  transition: all 0.25s ease;
+}
+
+.nav-list.open {
+  left: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  padding: 0 1rem;
+}
+
+.nav-link:hover {
+  color: var(--clr-secondary);
+}
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/sea.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 45% 0%;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.landing-title {
+  width: 85%;
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: var(--fw-medium);
+  word-wrap: break-word;
+  text-transform: uppercase;
+  line-height: 0.85;
+}
+
+
+.landing-title-holiday {
+  font-size: 4rem;
+  font-weight: var(--fw-extra-bold);
+}
+
+.landing-button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Exo', sans-serif;
+  font-weight: var(--fw-extra-bold);
+  font-size: 1rem;
+  text-transform: uppercase;
+  width: 45%;
+  padding: 0.5rem 0.75rem;
+  margin-top: 1.25rem;
+  border: 3px solid var(--clr-secondary);
+  border-radius: 25px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.btn-book-room {
+  background-color: var(--clr-secondary);
+  color: var(--clr-light);
+  margin-right: 0.25rem;
+}
+
+.btn-book-room:hover {
+  background-color: var(--clr-primary);
+  border: 3px solid var(--clr-primary);
+}
+
+.btn-see-more {
+  background-color: var(--clr-light);
+  color: var(--clr-secondary);
+  margin-left: 0.25rem;
+}
+
+.btn-see-more:hover {
+  border: 3px solid var(--clr-primary);
+  color: var(--clr-primary);
+}
+
+.rooms {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.rooms-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.rooms-title {
+  font-size: 2rem;
+  font-weight: var(--fw-extra-bold);
+  color: var(--clr-secondary);
+  text-align: center;
+}
+
+.rooms-title .world {
+  color: var(--clr-primary);
+}
+
+.card {
+  position: relative;
+  width: 80%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+  border-radius: 20px;
+  color: var(--clr-light);
+  overflow: hidden;
+}
+
+.card-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  position: absolute;
+  top: calc(100% - 115px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-info::before {
+  content: '';
+  position: absolute;
+  top: -70%;
+  width: 100%;
+  height: 100%;
+}
+
+.card-info:hover {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.card-info-title {
+  font-size: 4.5rem;
+  font-weight: var(--fw-extra-bold);
+  text-transform: uppercase;
+}
+
+.card-info-cta p {
+  margin: 0;
+  padding: 0;
+}
+
+.card-info-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.cta-room-amount {
+  font-size: 1.5rem;
+  font-weight: var(--fw-medium);
+}
+
+.cta-mid-sentence {
+  font-weight: var(--fw-medium);
+}
+
+.cta-price {
+  font-size: 3rem;
+  font-weight: var(--fw-extra-bold);
+}
+
+.cta-price .per-day {
+  font-weight: var(--fw-medium);
+  font-size: 1rem;
+}
+
+.card-info-button {
+  cursor: pointer;
+  padding: .5rem .75rem;
+  margin-bottom: 1rem;
+  background-color: var(--clr-light);
+  color: var(--clr-primary);
+  border: 0;
+  border-radius: 10px;
+  font-family: 'Exo', sans-serif;
+  font-weight: var(--fw-extra-bold);
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-info-button:hover {
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.about-sentences {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 0;
+  width: 80vw;
+  font-size: 4.5rem;
+}
+
+.about-sentence-first,
+.about-sentence-second {
+  color: black;
+  margin: 0;
+  padding: 0;
+  width: 85%;
+  line-height: 1.25;
+}
+
+@media (min-width: 425px) {
+
+  .about-sentence-first,
+  .about-sentence-second {
+    width: 70%;
+  }
+
+  .rooms-title {
+    font-size: 3rem;
+  }
+}
+
+.about-sentence-first {
+  align-self: flex-start;
+}
+
+.about-sentence-second {
+  align-self: flex-end;
+}
+
+.about-sentence-first .book,
+.about-sentence-second .enjoy {
+  font-size: 5.5rem;
+  font-weight: var(--fw-extra-bold);
+}
+
+.about-sentence-first .book {
+  color: var(--clr-primary);
+}
+
+.about-sentence-second .enjoy {
+  color: var(--clr-secondary);
+}
+
+.ceo-quote-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 80px);
+}
+
+.ceo-image {
+  width: 50vw;
+  height: 50vw;
+  border: 0.5rem solid var(--clr-primary);
+  border-radius: 50%;
+  background-image: url(../images/ceo_pp.jpg);
+  background-size: cover;
+}
+
+.ceo-quote {
+  width: 70%;
+  color: black;
+  font-weight: var(--fw-medium);
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.ceo-quotation-mark {
+  font-weight: var(--fw-extra-bold);
+  font-size: 2rem;
+}
+
+.bookr {
+  color: var(--clr-primary);
+  font-weight: var(--fw-extra-bold);
+}
+
+.ceo-name {
+  color: black;
+  font-weight: var(--fw-extra-bold);
+}
+
+
+@media (min-width: 480px) {
+  .landing-title {
+    font-size: 4.625rem;
+  }
+
+  .landing-title-holiday {
+    font-size: 5.5rem;
+  }
+
+  .about-sentence-first,
+  .about-sentence-second {
+    width: 60%;
+  }
+
+}
+
+@media (min-width: 600px) {
+  .landing-title {
+    width: 65%;
+  }
+
+  .btn {
+    width: 30%;
+  }
+
+  .rooms-title {
+    font-size: 3.5rem;
+  }
+
+  .about-sentences {
+    font-size: 5.5rem;
+  }
+
+  .about-sentence-first .book,
+  .about-sentence-second .enjoy {
+    font-size: 6.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .landing-title {
+    width: 60%;
+  }
+
+  .hamburger-toggle-btn {
+    display: none;
+  }
+
+  .nav-list {
+    list-style: none;
+    position: static;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    background-color: var(--clr-light);
+    transform: translateX(0);
+    transition: none;
+  }
+
+  .rooms-title {
+    font-size: 5rem;
+  }
+
+  .rooms-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+
+  .card {
+    width: 45%;
+  }
+
+  .about {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    height: 100vh;
+    margin: 0 auto;
+  }
+
+  .about-sentences {
+    font-size: 4.5rem;
+    order: 2;
+    width: 50%;
+    padding: 0;
+  }
+
+  .about-sentence-first,
+  .about-sentence-second {
+    width: 70%;
+    line-height: 1;
+  }
+
+  .about-sentence-first .book,
+  .about-sentence-second .enjoy {
+    font-size: 5.5rem;
+  }
+
+  .ceo-quote-wrapper {
+    order: 1;
+    width: 40%;
+    height: auto;
+  }
+
+  .ceo-quote {
+    width: 100%;
+  }
+
+  .ceo-image {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
+@media (min-width: 992px) {
+
+  .landing {
+    background-position: 50% 20%;
+  }
+
+  .landing-content {
+    width: 80%;
+    align-items: flex-end;
+  }
+
+  .landing-title {
+    text-align: right;
+    width: 50%;
+  }
+
+  .landing-button-group {
+    justify-content: flex-end;
+  }
+
+  .btn {
+    width: 18%;
+  }
+
+  .rooms-title {
+    font-size: 6rem;
+  }
+
+  .rooms-cards {
+    width: 80%;
+  }
+
+  .card {
+    width: 30%;
+  }
+
+
+  .about-sentences {
+    font-size: 5.5rem;
+  }
+
+  .about-sentence-first .book,
+  .about-sentence-second .enjoy {
+    font-size: 6.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .landing-title {
+    width: 40%;
+  }
+
+  .btn {
+    width: 15%;
+  }
+
+  .about-sentences {
+    width: 40%;
+  }
+}
